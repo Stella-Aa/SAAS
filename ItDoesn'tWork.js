@@ -8,7 +8,7 @@ const port = process.env.PORT || 8010;
 // sendFile will go here
 app.get("/Image/:JpgName", (req,res) => {
   let JpgName = req.params["JpgName"];
-  res.sendFile(path.join(__dirname, '/Image/${JpgName}'));
+  res.sendFile(path.join(__dirname, `/Image/${JpgName}`));
   console.log(JpgName);
 });
 
