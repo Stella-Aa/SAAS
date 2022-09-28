@@ -5,13 +5,13 @@ const port = process.env.port || 4443;
 const HTML_BLANK = "<!DOCTYPE html> <html lang='en'> <head> <meta charset='UTF-8'> <meta http-equiv='X-UA-Compatible' content='IE=edge'> <meta name='viewport' content='width=device-width, initial-scale=1.0'> <title>Gago</title> </head><body> OURTABLEHEARE </body></html>"
 
 
-function createTable(n) {
+function createTable(n,k) {
 
   console.log("TABLE")
   let table = "<table border='10' width = 800px height = 800px align='center'>"
-  for (let i = 0; i < 16; i++) {
+  for (let i = 0; i < n; i++) {
     table += "<tr>"
-    for (let j = 0; j < 16; j++) {
+    for (let j = 0; j < k; j++) {
       
       
      var a=Math.floor(Math.random() * 7);     
@@ -38,7 +38,7 @@ function createTable(n) {
 
 app.get("/", (req, res) => {
 
-  const board = createTable()
+  const board = createTable(7,9)
   res.send(board)
 });
 app.listen(port, err => {
